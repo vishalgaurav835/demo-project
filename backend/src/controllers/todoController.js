@@ -25,9 +25,9 @@ exports.deleteTodo = async(req, res, next) => {
         let todo = {
             deleted : true,
         } 
-        let updatedAlert = await todoService.updateTodoWithSet({ _id : body.todoId }, { $set : todo } );
-        if(updatedAlert && updatedAlert.n > 0){
-            return res.status(HTTP_CODES.OK).json({ status : RESPONSE_STATUS.SUCCESS , msg : response.todo.deleteSuccess, data : updatedAlert});
+        let updatedTodo = await todoService.updateTodoWithSet({ _id : body.todoId }, { $set : todo } );
+        if(updatedTodo && updatedTodo.n > 0){
+            return res.status(HTTP_CODES.OK).json({ status : RESPONSE_STATUS.SUCCESS , msg : response.todo.deleteSuccess, data : updatedTodo});
         }else {
             return res.status(HTTP_CODES.BAD_REQUEST).json({ status : RESPONSE_STATUS.ERROR , msg : response.todo.deleteFail });
         }
@@ -61,9 +61,9 @@ exports.completeTodo = async(req, res, next) => {
         let todo = {
             status : 'complete',
         } 
-        let updatedAlert = await todoService.updateTodoWithSet({ _id : body.todoId }, { $set : todo } );
-        if(updatedAlert && updatedAlert.n > 0){
-            return res.status(HTTP_CODES.OK).json({ status : RESPONSE_STATUS.SUCCESS , msg : response.todo.completeSuccess, data : updatedAlert});
+        let updatedTodo = await todoService.updateTodoWithSet({ _id : body.todoId }, { $set : todo } );
+        if(updatedTodo && updatedTodo.n > 0){
+            return res.status(HTTP_CODES.OK).json({ status : RESPONSE_STATUS.SUCCESS , msg : response.todo.completeSuccess, data : updatedTodo});
         }else {
             return res.status(HTTP_CODES.BAD_REQUEST).json({ status : RESPONSE_STATUS.ERROR , msg : response.todo.completeFail });
         }
