@@ -1,0 +1,10 @@
+{
+    "dbConfig": {
+        "hostUri": "mongodb+srv://vishalgaurav:vishalgaurav123@cluster0.o4fk2.mongodb.net/toDo"
+    },
+    "log": {
+        "level": "debug",
+        "service": "Todo Service"
+    },
+    "APP_URL": ["http://localhost:3000"]
+}
